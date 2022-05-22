@@ -1,0 +1,376 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: "lato";
+  background-color: #ffffff;
+  font-size: 16px;
+  min-height: 100vh;
+  padding-bottom: 14em;
+}
+
+/*me gustaria poder animar el header tipo slide*/
+header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../recursos/IMG/bg1.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+h2 {
+  color: #485DD9;
+  font-family: "sora";
+  font-size: 40px;
+}
+
+h3 {
+  color: #485DD9;
+  font-family: "sora";
+  font-size: 40px;
+  font-weight: 600;
+}
+
+/*barra de navegacion*/
+/*Quise hacer una barra de navegacion distinta*/
+nav {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+}
+nav .circle {
+  margin-left: 20px;
+  position: center;
+  background: #5068F2;
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+  border-radius: 50%;
+}
+nav .bar-btn i.active,
+nav .circle:hover {
+  cursor: pointer;
+  background-color: #50F296;
+}
+nav .bar-btn {
+  font-size: 25px;
+  color: #5068F2;
+  margin-right: 20px;
+  cursor: pointer;
+}
+nav .bar-btn:hover {
+  color: #50F296;
+}
+nav .nav-menu {
+  position: fixed;
+  width: 100%;
+  height: 0vh;
+  top: 100px;
+  background: linear-gradient(to top, #003de4a1 0%, #003de4a1 100%);
+  text-align: center;
+  transition: all 0.5s;
+  padding: 0;
+  z-index: 1;
+}
+nav .nav-menu li {
+  display: none;
+  line-height: 30px;
+  margin: 10;
+  padding: 20px;
+  transition: all 0.5s;
+}
+nav .nav-menu li a {
+  font-size: 18px;
+  font-family: "lato";
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border-radius: 60px;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-menu li a.active,
+.nav-menu li a:hover {
+  color: #50F296;
+  transition: 0.2s ease-in-out;
+  border-radius: 60px;
+  background-color: #485DD9;
+  font-weight: 600;
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ .nav-menu {
+  height: 100vh;
+}
+
+#check:checked ~ .nav-menu li {
+  display: block;
+}
+
+/*sobremi*/
+.main .contenedor {
+  overflow: visible;
+}
+
+.main .acercaDe {
+  text-align: center;
+  position: relative;
+}
+.main .acercaDe .foto-perfil {
+  margin-top: -90px;
+}
+.main .acercaDe .foto-perfil img {
+  vertical-align: top;
+  border-radius: 90px;
+  border: 5px solid #5068F2;
+}
+.main .acercaDe .foto-perfil .texto {
+  color: #5068F2;
+  font-size: 1.2em;
+  line-height: 25px;
+  width: 60%;
+  margin: 40px auto 60px auto;
+}
+.main .acercaDe .foto-perfil .texto .titulo1 {
+  font-size: 40px;
+  margin-bottom: 40px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #485DD9;
+  text-align: center;
+  font-family: "lato";
+}
+
+/*galeria*/
+/*La galeria al hacer clic tendra la  imagen en grande, seguire trabjando en eso con js*/
+.cont-texto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cont-texto h1 {
+  font-size: 50px;
+  color: #5068F2;
+  font-family: "sora";
+  padding: 30px;
+}
+
+.galeria {
+  display: flex;
+  width: 82%;
+  margin: auto;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+.galeria .foto {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 6px 0px rgba(195, 199, 204, 0.783);
+  transition: 0.8s ease;
+}
+.galeria .foto img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+.galeria .foto .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to top, #003de4a1 0%, #003de4a1 100%);
+  width: 100%;
+  height: 0;
+  transition: 0.33s ease;
+  overflow: hidden;
+}
+.galeria .foto .overlay h2 {
+  color: #50F296;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "sora";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.galeria .foto:hover {
+  box-shadow: 0px 0px 20px 0px rgba(240, 238, 238, 0.75);
+  border-radius: 5px;
+}
+
+.foto:hover .overlay {
+  height: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/*sobremi el interior*/
+.main .acercaDe {
+  text-align: center;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 12fr);
+}
+.main .acercaDe .foto2 {
+  margin-top: 100px;
+}
+.main .acercaDe .foto2 img {
+  vertical-align: top;
+  border-radius: 90px;
+  border: 6px solid #5068F2;
+}
+.main .acercaDe .foto2 .texto2 {
+  color: #5068F2;
+  font-size: 1.3em;
+  line-height: 30px;
+  width: 60%;
+  margin: 40px auto 60px auto;
+}
+.main .acercaDe .foto2 .texto2 .titulo2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  line-height: 19px;
+  font-weight: 600;
+  color: #485DD9;
+  text-align: center;
+  font-family: "lato";
+}
+
+/*footer*/
+.piedepagina {
+  width: 100%;
+  background: #ffffff;
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0;
+  text-align: center;
+}
+.piedepagina .grupo1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+  justify-items: center;
+}
+.piedepagina .grupo1 .box h4 {
+  color: #5068F2;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "lato";
+  text-align: center;
+}
+.piedepagina .grupo1 .redsocial {
+  text-align: center;
+}
+.piedepagina .grupo1 .redsocial a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 10px;
+  color: #5068F2;
+  margin-right: 10px;
+  transition: all 300ms ease;
+}
+.piedepagina .grupo2 {
+  padding: 5px;
+  text-align: center;
+  background: #5068F2;
+  color: #ffffff;
+}
+.piedepagina .grupo2 small {
+  font-size: 13px;
+}
+
+.piedepagina .grupo1 .redsocial a:hover {
+  color: #50F296;
+}
+
+/*mediaq*/
+@media (max-width: 940px) {
+  header {
+    background-image: url(../recursos/IMG/bg2.svg);
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: contain;
+    transition: 0.6s ease-in-out;
+  }
+
+  .cont-texto {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .cont-texto h1 {
+    font-size: 40px;
+    color: #5068F2;
+    font-family: "sora";
+    padding: 40px;
+  }
+
+  .circle:hover {
+    cursor: pointer;
+    background-color: #50F296;
+  }
+
+  /*footer*/
+  .piedepagina {
+    width: 100%;
+    background: #ffffff;
+  }
+
+  .piedepagina .grupo1 {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    padding: 35px 0px;
+    justify-items: center;
+  }
+
+  .piedepagina .grupo1 .box h4 {
+    font-size: 17px;
+    font-family: "lato";
+    text-align: center;
+  }
+
+  .piedepagina .grupo1 .redsocial {
+    text-align: center;
+  }
+
+  .piedepagina .grupo1 .redsocial a {
+    font-size: 20px;
+  }
+
+  .grupo2 small {
+    font-size: 1em;
+  }
+}
+/*# sourceMappingURL=estilos.css.map */
